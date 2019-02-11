@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Town Of Amherst</string>
+    <string name="top_attractions">Appeals</string>
+    <string name="restaurants">Dining</string>
+    <string name="public_places">Places</string>
+    <string name="events_page">Events</string>
 </resources>
