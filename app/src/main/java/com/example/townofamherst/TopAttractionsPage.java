@@ -1,5 +1,7 @@
 package com.example.townofamherst;
 
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -28,14 +30,12 @@ public class TopAttractionsPage extends Fragment {
 
 //        Creating a Layout Manager
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        Log.e("PRITISH TAG","See Linear Layout Manager: " + llm.toString());
 
         rv.setLayoutManager(llm);
         rv.setHasFixedSize(true);
 
         initializeData();
 
-        Log.e("PRITISH TAG", "Top Attractions -> " + topAttractions.toString());
         RecyclerViewTopAttractionsAdapter adapter = new RecyclerViewTopAttractionsAdapter(topAttractions);
         rv.setAdapter(adapter);
 
@@ -43,26 +43,17 @@ public class TopAttractionsPage extends Fragment {
     }
 
     private void initializeData(){
+        Resources resourcesTopAttractions = getResources();
+        String[] topAttractionsTitle = resourcesTopAttractions.getStringArray(R.array.top_attractions_title);
+        String[] topAttractionsDescription = resourcesTopAttractions.getStringArray(R.array.top_attractions_description);
+        TypedArray topAttractionsImage = resourcesTopAttractions.obtainTypedArray(R.array.top_attractions_images);
+
         topAttractions = new ArrayList<>();
 
-        topAttractions.add(new TopAttractionsClass("Emily Dickinson",
-                "She was born in Amherst, MA",
-                R.mipmap.emily_dickison_foreground));
+        for(int i = 0; i<topAttractionsTitle.length; i++){
+            topAttractions.add(new TopAttractionsClass(topAttractionsTitle[i], topAttractionsDescription[i], topAttractionsImage.getResourceId(i, -1)));
+        }
 
-        topAttractions.add(new TopAttractionsClass("Puffer's Pond",
-                "Great place to go with friends",
-                R.mipmap.puffers_pond_foreground));
-
-
-
-        topAttractions.add(new TopAttractionsClass("Puffer's Pond",
-                "Great place to go with friends",
-                R.mipmap.puffers_pond_foreground));
-
-        topAttractions.add(new TopAttractionsClass("Emily Dickinson",
-                "She was born in Amherst, MA",
-                R.mipmap.emily_dickison_foreground));
-
-
+        topAttractionsImage.recycle();
     }
 }

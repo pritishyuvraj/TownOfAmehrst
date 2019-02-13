@@ -4,4 +4,25 @@
     <string name="restaurants">Dining</string>
     <string name="public_places">Places</string>
     <string name="events_page">Events</string>
+    
+    <string-array name="top_attractions_title">
+        <item>Amherst Museum</item>
+        <item>Emily Dickinson</item>
+        <item>Amherst College</item>
+        <item>Puffers Pond</item>
+    </string-array>
+
+    <string-array name="top_attractions_description">
+        <item>Natural History at Amherst College</item>
+        <item>Born in Amherst, MA</item>
+        <item>Best Liberal Arts College in USA</item>
+        <item>Great place to visit with friends</item>
+    </string-array>
+
+    <integer-array name="top_attractions_images">
+        <item>@drawable/museum_amherst</item>
+        <item>@drawable/emilydickinson</item>
+        <item>@drawable/amherst_college</item>
+        <item>@drawable/pufferspond</item>
+    </integer-array>
 </resources>
